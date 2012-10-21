@@ -1,6 +1,6 @@
 <div id="content">
 	<div class="content-bg">
-		<!-- start contacts block -->
+		<!-- Here is the start contacts block -->
 		<div class="big-block">
 			<h1><?php echo Kohana::lang('ui_main.contact'); ?></h1>
 			<div id="contact_us" class="contact">
