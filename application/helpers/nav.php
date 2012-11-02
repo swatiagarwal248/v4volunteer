@@ -25,64 +25,91 @@ class nav_Core {
 			$dontshow = array();
 		}
 		
-		// Home
+			// Home
 		if( ! in_array('home',$dontshow))
 		{
-			$menu .= "<li><a href=\"".url::site()."main\" ";
-			$menu .= ($this_page == 'home') ? " class=\"active\"" : "";
-		 	$menu .= ">".Kohana::lang('ui_main.home')."</a></li>";
+			$menu .= "<li><a href=\"".url::site()."main\"";
+			$menu .= ($this_page == 'home') ? "  class=\"active\"" : "";
+		  	$menu .= "<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/home.png\"/></span>v4volunteer</a></li>";
 		 }
 
-		// Reports List
+			// Reports List
 		if( ! in_array('reports',$dontshow))
 		{
-			$menu .= "<li><a href=\"".url::site()."reports\" ";
+			$menu .= "<li><a href=\"".url::site()."reports\" target=\"_blank\"";
 			$menu .= ($this_page == 'reports') ? " class=\"active\"" : "";
-		 	$menu .= ">".Kohana::lang('ui_main.reports')."</a></li>";
+		 	$menu .= "</a><span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/report.png\"/></span>Reports</a></li>";
 		 }
 		
-		// Reports Submit
-		if( ! in_array('reports_submit',$dontshow))
-		{
-			if (Kohana::config('settings.allow_reports'))
-			{
-				$menu .= "<li><a href=\"".url::site()."reports/submit\" ";
-				$menu .= ($this_page == 'reports_submit') ? " class=\"active\"":"";
-			 	$menu .= ">".Kohana::lang('ui_main.submit')."</a></li>";
-			}
-		}
+
 		
 		// Alerts
 		if(! in_array('alerts',$dontshow))
 		{
 			if(Kohana::config('settings.allow_alerts'))
 			{
-				$menu .= "<li><a href=\"".url::site()."alerts\" ";
+				$menu .= "<li><a href=\"".url::site()."alerts\"";
 				$menu .= ($this_page == 'alerts') ? " class=\"active\"" : "";
-				$menu .= ">".Kohana::lang('ui_main.alerts')."</a></li>";
+			 	$menu .= "<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/alerts.png\"/></span>Subscribe to Alerts</a></li>";
+				
 			}
 		}
 		
-		// Contacts
-		if( ! in_array('contact',$dontshow))
-		{
-			if (Kohana::config('settings.site_contact_page') AND Kohana::config('settings.site_email') != "")
-			{
-				$menu .= "<li><a href=\"".url::site()."contact\" ";
-				$menu .= ($this_page == 'contact') ? " class=\"active\"" : "";
-			 	$menu .= ">".Kohana::lang('ui_main.contact')."</a></li>";	
-			}
-		}
-		
-		// Custom Pages
-		$pages = ORM::factory('page')->where('page_active', '1')->find_all();
-		foreach ($pages as $page)
-		{
-			$menu .= "<li><a href=\"".url::site()."page/index/".$page->id."\" ";
-			$menu .= ($this_page == 'page_'.$page->id) ? " class=\"active\"" : "";
-		 	$menu .= ">".$page->page_tab."</a></li>";
-		}
 
+		
+		
+if( ! in_array('contact',$dontshow))
+		{
+			if (Kohana::config('settings.site_contact_page'))
+			{
+				$menu .= "<li><a href=\"".url::site()."contact\"";
+				$menu .= ($this_page == 'contact') ? " class=\"active\"" : "";
+			 	$menu .= "<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/contact.png\"/></span>Contact us</a></li>";
+			}
+		}
+		
+		if( ! in_array('submit',$dontshow))
+		{
+					
+			$menu .= "<li><DIV class=\"outer-submit\"><form method=\"get\" action=\"".url::site()."reports/submit?type=0\">
+			<Button type=\"submit\" class =\"forms\" name=\"type\" value=\"1\"/>
+			<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/volunteer.png\"/ height = \"40px\" width = \"40px\"></span>
+			Volunteer Now</Button></Form></DIV>";
+			$menu .= ($this_page == 'submit') ? " class=\"active\"" : "";
+		 	$menu .= "</a></li>";
+		 }
+		 	if( ! in_array('submit',$dontshow))
+		{
+					
+			$menu .= "<li><DIV class=\"outer-submit\"><form method=\"get\" action=\"".url::site()."reports/submit?type=0\">
+			<Button type=\"submit\" class =\"forms\" name=\"type\" value=\"2\"/>
+			<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/ngo.png\"/></span>
+			Register NGO</Button></Form></DIV>";
+			$menu .= ($this_page == 'submit') ? " class=\"active\"" : "";
+		 	$menu .= "</a></li>";
+		 }
+		 
+		if( ! in_array('submit',$dontshow))
+		{
+					
+			$menu .= "<li><DIV class=\"outer-submit\"><form method=\"get\" action=\"".url::site()."reports/submit?type=0\">
+			<Button type=\"submit\" class =\"forms\" name=\"type\" value=\"3\"/>
+			<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/activity.png\"/></span>
+			Post Activities</Button></Form></DIV>";
+			$menu .= ($this_page == 'submit') ? " class=\"active\"" : "";
+		 	$menu .= "</a></li>";
+		 }
+		 
+
+	 if( ! in_array('submit',$dontshow))
+		{
+		$menu .= "<li><DIV class=\"outer-submit\"><form method=\"get\" action=\"".url::site()."reports/submit?type=0\">
+		<Button type=\"submit\" class =\"forms\" name=\"type\" value=\"4\"/>
+		<span class=\"item-swatchform\"><img src=\"".url::file_loc('img')."media/img/blood.png\"/></span>
+		Report Blood Group</Button></Form></DIV>";
+		$menu .= ($this_page == 'submit') ? " class=\"active\"" : "";
+		$menu .= "</a></li>";
+		} 
 		echo $menu;
 		
 		// Action::nav_admin_reports - Add items to the admin reports navigation tabs
