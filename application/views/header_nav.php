@@ -2,18 +2,23 @@
 	<hgroup>
 		<ul id="header_nav_left">
 
-			<li><span class="bignext">&raquo;</span><a href="<?php echo url::site();?>"><?php echo $site_name; ?></a></li>
+			<li>
+			<!-- v4volunteer.com : Removed default site name and added logo in the header -->
+			<a href = "<?php echo url::site();?>"> <input type="image" src="<?php echo url::file_loc('img'); ?>media/img/v4volunteer_logo.png"  alt="<?php echo $site_name; ?>"/>
+			</a></li>
 			<?php
 			// Action::header_nav - Add items to header nav area
 			Event::run('ushahidi_action.header_nav');
 			?>
 
 		</ul>
+		
 	</hgroup>
 
 	<?php Event::run('ushahidi_action.header_nav_bar'); ?>
 
 	<nav>
+		
 		<ul id="header_nav_right">
 			<li class="header_nav_user header_nav_has_dropdown">
 			<?php if($loggedin_user != FALSE){ ?>
@@ -74,4 +79,9 @@
 			</li>
 		</ul>
 	</nav>
+	
+
+		
+					</br>
+
 </header>

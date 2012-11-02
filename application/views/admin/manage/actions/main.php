@@ -504,11 +504,13 @@ $(document).ready(function() {
 								<?php echo form::input('action_keyword',''); ?>
 							</div>
 
-							<div class="tab_form_item" id="action_form_category" style="margin-right:75px;">
+						
+								<div class="tab_form_item" id="action_form_category" style="margin-right:75px;">
 								<h4><a href="#" class="tooltip" title="<?php echo htmlspecialchars(Kohana::lang("tooltips.actions.category")); ?>"><?php echo Kohana::lang('ui_main.category'); ?>:</a></h4>
 								<?php
 									// categories, selected_categories, form field name, number of columns
-									echo category::tree($categories, FALSE, array(), 'action_category', 2);
+									echo category::tree($categories, FALSE, array(), 'action_category', 1);
+									echo category::tree($categories, FALSE, array(), 'action_category', 4);
 								?>
 							</div>
 

@@ -425,7 +425,7 @@
 	'report_option_1' => 'By sending a message to',
 	'report_option_2' => 'By sending an email',
 	'report_option_3' => 'By sending a tweet with the hashtag/s',
-	'report_option_4' => 'By filling this form on our website.',
+	'report_option_4' => 'By filling the following forms on our website.',
 	'report_option_external_apps' => 'By using an app',
 	'report_saved' => 'Your Report Has Been Saved',
 	'report_title' => 'Report Title',
@@ -579,5 +579,14 @@
 	'your_file' => 'Your file',
 	'zoom_in' => 'Zoom In',
 	'zoom_out' => 'Zoom Out',
+	'OurMission' => 'Our Mission',	
+	'HowItWorks' => 'How it works',
+	'OurPhilosophy' => 'Our philosophy',
+	'ngo' => 'NGO',
+	'volunteer' => 'Volunteer',
+	'reports_BloodGroup_title' => 'Name',
+	'reports_activity_title' => 'Activity/Opening',
+	'reports_NGO_title' => 'Mission',
+		'reports_Volunteer_title' => 'Title your volunteering aspiration',
 	);
 ?>
